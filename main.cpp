@@ -1,4 +1,39 @@
+/**
+
+Hey there! Please take a look at the readme file for controls and explainations of game mechanics!
+
+WARNING: the code that follows will make you cry;
+         a safety pig has been provided below for your benefit
+                         _
+ _._ _..._ .-',     _.._(`))
+'-. `     '  /-._.-'    ',/
+   )         \            '.
+  / _    _    |             \
+ |  a    a    /              |
+ \   .-.                     ;
+  '-('' ).-'       ,'       ;
+     '-;           |      .'
+        \           \    /
+        | 7  .__  _.-\   \
+        | |  |  ``/  /`  /
+       /,_|  |   /,_/   /
+          /,_/      '`-'
+*/
+
+#include "header.h"
 #include <SFML/Graphics.hpp>
+
+///Global variables
+bool isPaused = false;
+int gameState = 0;
+float loadTimer = 0.0f;
+int area;
+std::string requestedMusic;
+std::string currentMusic;
+sf::Vector2f viewPosition;
+sf::Vector2f viewSize;
+
+float timeElapsed;
 
 int main()
 {
@@ -12,7 +47,9 @@ int main()
         while (window.pollEvent(event))
         {
             if (event.type == sf::Event::Closed)
+            {
                 window.close();
+            }
         }
 
         window.clear();
